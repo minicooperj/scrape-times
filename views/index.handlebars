@@ -1,0 +1,47 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Times Scraper</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Saved<span class="sr-only"></span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Scrape</button>
+    </form>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Times Scraper</h1>
+    <p class="lead">Use the Times Scraper to view the NYT headlines at a glance.</p>
+  </div>
+</div>
+
+{{#each articles}}
+<div class="container">
+<div class="jumbotron jumbotron-fluid" >
+      <div class="container">
+      <a href="{{this.link}}">
+      <h3><strong>{{this.title}}</strong></h3>
+      </a>
+      <form class="" action="articles/id/{{this.id}}?_method=PUT" method="POST">
+        <button class="btn btn-sm btn-outline-danger my-2 my-sm-0" type="submit">Save!</button>
+      </form>
+      </div>
+</div>
+</div>
+</div>
+{{/each}}
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
