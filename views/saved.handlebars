@@ -19,25 +19,26 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3">Times Scraper</h1>
-    <p class="lead">Use the Times Scraper to view the NYT headlines at a glance.</p>
+    <p class="lead">Here are your saved articles. You can view and comment on the article, or remove it from your saved articles.</p>
   </div>
 </div>
 
-{{#each articles}}
 <div class="container">
+  {{#each articles}}
 <div class="jumbotron jumbotron-fluid" >
       <div class="container">
       <a href="{{this.link}}">
       <h3><strong>{{this.title}}</strong></h3>
       </a>
-      <form data-id="{{this._id}}" class="" action="/save/{{this._id}}?_method=POST" method="POST">
-        <button id="savearticle" class="btn btn-sm btn-outline-danger my-2 my-sm-0" type="submit">Save!</button>
+      <button data-id="{{this._id}}" id="openCommentModal" data-toggle="modal" data-target="#commentModal-{{this._id}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0" type="submit">Comment!</button>
+      <form class="" action="articles/id/{{this.id}}?_method=POST" method="POST">
+        <button id="unsave" class="btn btn-sm btn-outline-danger my-2 my-sm-0" type="submit">Unsave!</button>
       </form>
       </div>
-</div>
-</div>
+      {{> articles/commentmodal}}
 </div>
 {{/each}}
+</div>
 
 
 

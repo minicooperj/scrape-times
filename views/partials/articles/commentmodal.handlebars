@@ -1,0 +1,18 @@
+<!-- Large modal -->
+<div id="commentModal-{{this._id}}" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <ul id="commentDiv" class="list-group">
+        {{#each comments}}
+        <li class="list-group-item">{{this.body}}</li>
+        {{/each}}
+      </ul>
+      <form data-id="{{this._id}}" class="" action="/savecomment/{{this._id}}?_method=POST" method="POST">
+        <div class="col-10">
+          <input class="form-control" type="text" value="Leave a comment!" id="comment-text-input">
+        </div>
+        <button id="savecomment" class="btn btn-sm btn-outline-danger my-2 my-sm-0" type="submit">Save!</button>
+      </form>
+    </div>
+  </div>
+</div>
